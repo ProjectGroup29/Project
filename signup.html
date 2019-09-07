@@ -1,0 +1,61 @@
+{% load static %}
+{% load i18n %}
+{% include 'Common/header.html'%}
+
+    <!--breadcrumbs area start-->
+    <div class="breadcrumbs_area mt-45">
+        <div class="container">   
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb_content">
+                        <ul>
+                            <li><a href="{% url 'Home:home' %}">Home</a></li>
+                            <li>Register</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>         
+    </div>
+    <!--breadcrumbs area end-->
+
+
+                <!--register area start-->
+             <div class="container-fluid-center" align="center" >
+                <div class="col-lg-8 col-md-8">
+                    <div class="account_form register">
+                        <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}"> {% csrf_token %}
+                            <h2 class="text-center">Register</h2>
+                            <p>
+                                <input type="text" name="username" placeholder="Username">
+                             </p>
+                             <p>
+                                <input type="email" name="email" placeholder="Email Address">
+                             </p>
+                            <p>
+                                <input type="password" name="password1" placeholder="Password">
+                             </p>
+                            <p>
+                                <input type="password" name="password2" placeholder="Confirm Password">
+                             </p>
+                            {% if redirect_field_value %}
+                                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                            {% endif %}
+                            <div class="login_submit">
+                                <input type="submit" value="Register" />
+                            </div>
+                            <p>Already have an account? Then please <a href="{{ login_url }}">sign in</a>.</p>
+                        </form>
+                    </div>    
+                </div>
+                <!--register area end-->
+            </div>
+        </div>    
+    </div>
+</div>
+    <!-- customer login end -->
+
+
+
+{% include 'Common/footer.html'%}
+
